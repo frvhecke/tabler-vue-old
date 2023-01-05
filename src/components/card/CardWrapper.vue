@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'Card',
+  name: 'CardWrapper',
   props: {
     border: { default: true, type: Boolean },
     active: { default: false, type: Boolean },
