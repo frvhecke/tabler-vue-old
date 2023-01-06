@@ -18,7 +18,8 @@ export default {
     active: { default: false, type: Boolean },
     disabled: { default: false, type: Boolean },
     href: { default: '', type: String },
-    target: { default: '_self', type: String }
+    target: { default: '_self', type: String },
+    auto_close: { default: true, type: Boolean }
   },
   data: () => ({
     dropdown_open: false
@@ -41,7 +42,7 @@ export default {
       }
     },
     dropdown_close (e) {
-      if (!e.currentTarget.contains(event.relatedTarget)) {
+      if (!e.currentTarget.contains(event.relatedTarget) && this.auto_close) {
         this.dropdown_open = false
       }
     }

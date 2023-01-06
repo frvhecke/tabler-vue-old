@@ -33,7 +33,8 @@ export default {
     icon_color: { default: '', type: String },
     href: { default: '', type: String },
     target: { default: '_self', type: String },
-    badge_text: { default: '', type: String }
+    badge_text: { default: '', type: String },
+    auto_close: { default: true, type: Boolean }
   },
   data: () => ({
     dropdown_open: false
@@ -55,7 +56,7 @@ export default {
       }
     },
     dropdown_close (e) {
-      if (!e.currentTarget.contains(event.relatedTarget)) {
+      if (!e.currentTarget.contains(event.relatedTarget) && this.auto_close) {
         this.dropdown_open = false
       }
     }
