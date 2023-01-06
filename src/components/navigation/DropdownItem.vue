@@ -1,6 +1,6 @@
 <template>
   <div :class="[ { 'dropend': dropdown_present } ]" @focusout="dropdown_close" tabindex="1">
-    <a class="dropdown-item" :class="[ { 'active': active }, { 'disabled': disabled }, { 'dropdown-toggle': dropdown_present }, { 'show': dropdown_open } ]" @click="click" :title="tooltip" role="button">
+    <a class="dropdown-item" :class="[ { 'active': active }, { 'active': dropdown_open }, { 'disabled': disabled }, { 'dropdown-toggle': dropdown_present }, { 'show': dropdown_open } ]" @click="click" :title="tooltip" role="button">
       {{text}}
     </a>
     <div v-if="dropdown_present" class="dropdown-menu" :class="[ { 'show': dropdown_open } ]" data-bs-popper="none">

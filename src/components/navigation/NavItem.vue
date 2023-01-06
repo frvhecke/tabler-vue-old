@@ -1,5 +1,5 @@
 <template>
-  <li class="nav-item" :class="[ { 'active': active }, { 'dropdown': dropdown_present } ]" @focusout="dropdown_close" tabindex="0">
+  <li class="nav-item" :class="[ { 'active': active }, { 'active': dropdown_open }, { 'dropdown': dropdown_present } ]" @focusout="dropdown_close" tabindex="0">
     <a class="nav-link" @click="click" :title="tooltip" :class="[ { 'disabled': disabled }, { 'dropdown-toggle': dropdown_present }, { 'show': dropdown_open } ]" role="button">
       <span v-if="icon_name" class="nav-link-icon d-md-none d-lg-inline-block">
         <StandardIcon :icon_prefix="icon_prefix" :icon_name="icon_name" :icon_color="icon_color" />
