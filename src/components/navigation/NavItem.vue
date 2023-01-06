@@ -54,7 +54,7 @@ export default {
         window.open(this.href, this.target, 'noreferrer')
       }
     },
-    dropdown_close () {
+    dropdown_close (e) {
       if (!e.currentTarget.contains(event.relatedTarget)) {
         this.dropdown_open = false
       }
