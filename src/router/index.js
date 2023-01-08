@@ -6,6 +6,11 @@ const routes = [
     name: "buttons",
     component: () => import("../views/ButtonsView.vue")
   },
+  {
+    path: "/empty",
+    name: "empty",
+    component: () => import("../views/EmptyView.vue")
+  },
 ];
 
 const router = createRouter({
