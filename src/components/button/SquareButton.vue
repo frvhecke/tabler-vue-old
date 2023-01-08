@@ -9,7 +9,7 @@
 import StandardIcon from '@/components/icon/StandardIcon.vue'
 
 export default {
-  name: 'SquaredButton',
+  name: 'SquareButton',
   components: {
     StandardIcon
   },
