@@ -11,8 +11,8 @@ export default {
     GhostButton
   },
   data: () => ({
-    theme_light: false,
-    theme_dark: false,
+    theme_light: document.body.classList.contains('theme-light'),
+    theme_dark: document.body.classList.contains('theme-dark'),
     observer: null
   }),
   mounted () {
