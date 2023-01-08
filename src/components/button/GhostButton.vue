@@ -110,13 +110,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .btn-ghost-light {
-    color: #1e293b;
-  }
-
-  .btn-ghost-light:hover {
-    background-color: #dfe1e3;
-  }
-</style>

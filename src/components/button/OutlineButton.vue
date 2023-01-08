@@ -110,15 +110,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .btn-outline-light {
-    color: #1e293b;
-    background-color: #f8fafc;
-    border-color: #dfe1e3;
-  }
-
-  .btn-outline-light:hover {
-    background-color: #dfe1e3;
-  }
-</style>
