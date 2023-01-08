@@ -1,5 +1,5 @@
 <template>
-  <a class="btn btn-pill" :class="[ { disabled: disabled }, getColor(), { 'w-100' : full_width }, { 'btn-icon' : !text } ]" @click="click" :title="tooltip">
+  <a class="btn btn-pill" :class="[ { disabled: disabled }, { 'active': active }, getColor(), { 'w-100' : full_width }, { 'btn-icon' : !text } ]" @click="click" :title="tooltip">
     <StandardIcon v-if="icon_name" :icon_prefix="icon_prefix" :icon_name="icon_name" :icon_color="icon_color" />
     <span v-if="text">{{ text }}</span>
   </a>
@@ -16,6 +16,7 @@ export default {
   props: {
     text: { default: '', type: String },
     tooltip: { default: '', type: String },
+    active: { default: false, type: Boolean },
     disabled: { default: false, type: Boolean },
     color: { default: 'primary', type: String },
     icon_prefix: { default: 'ti', type: String },
