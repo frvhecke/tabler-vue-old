@@ -69,6 +69,8 @@ export default {
         return 'text-teal'
       } else if (this.icon_color === 'cyan') {
         return 'text-cyan'
+      } else if (this.icon_color === 'white') {
+        return 'text-white'
       } else if (this.icon_color === 'facebook') {
         return 'text-facebook'
       } else if (this.icon_color === 'twitter') {
