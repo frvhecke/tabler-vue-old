@@ -1,21 +1,13 @@
 <template>
-  <div class="card text-left" :class="[ { 'border-0' : !border }, { 'card-active' : active }, { 'card-inactive' : inactive }, { 'card-stacked' : stacked } ]">
+  <div class="card text-left" :class="[ { 'card-borderless' : !border }, { 'card-active' : active }, { 'card-inactive' : inactive }, { 'card-stacked' : stacked }, { 'card-rotate-right' : rotate_right }, { 'card-rotate-left' : rotate_left } ]">
     <div v-if="status_top" class="card-status-top" :class="[ status_color_class ]"></div>
     <div v-if="status_bottom" class="card-status-bottom" :class="[ status_color_class ]"></div>
     <div v-if="status_side" class="card-status-start" :class="[ status_color_class ]"></div>
-    <div v-if="header_active" class="card-header">
-      <slot name="header"></slot>
-    </div>
-    <div class="card-body">
-      <slot></slot>
-    </div>
+    <slot></slot>
     <div v-if="progress" class="progress progress-sm card-progress">
       <div class="progress-bar" :style="progress_style" role="progressbar" :aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">
         <span class="visually-hidden">{{progress}} Complete</span>
       </div>
-    </div>
-    <div v-if="footer_active" class="card-footer">
-      <slot name="footer"></slot>
     </div>
     <div v-if="image_bottom" class="card-img-bottom img-responsive img-responsive-16by9" :style="image_url_style"></div>
   </div>
@@ -33,6 +25,7 @@ export default {
     stacked: { default: false, type: Boolean },
     status: { default: '', type: String },
     status_color: { default: '', type: String },
+    rotate: { default: '', type: String },
     image: { default: '', type: String },
     image_url: { default: '', type: String }
   },
@@ -124,6 +117,12 @@ export default {
         return 'bg-tabler'
       }
       return 'bg-primary'
+    },
+    rotate_right () {
+      return this.rotate === 'right'
+    },
+    rotate_left () {
+      return this.rotate === 'left'
     },
     image_bottom () {
       return this.image === 'bottom'
