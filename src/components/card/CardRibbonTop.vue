@@ -1,6 +1,6 @@
 <template>
   <div class="ribbon ribbon-top" :class="[ getBackgroundColor() ]">
-    <StandardIcon icon_name="star" :icon_color="color" />
+    <StandardIcon :icon_name="icon" :icon_color="color" />
   </div>
 </template>
 
@@ -11,7 +11,8 @@ export default {
   name: 'CardRibbonTop',
   props: {
     color: { default: 'white', type: String },
-    bg_color: { default: 'yellow', type: String }
+    bg_color: { default: 'yellow', type: String },
+    icon: { default: 'star', type: String }
   },
   components: {
     StandardIcon
