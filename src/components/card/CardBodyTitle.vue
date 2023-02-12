@@ -1,6 +1,6 @@
 <template>
-  <h3 v-if="text" class="card-title">
-    {{text}}
+  <h3 v-if="title" class="card-title">
+    {{title}}
   </h3>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: 'CardBodyTitle',
   props: {
-    text: { default: '', type: String }
+    title: { default: '', type: String }
   }
 }
 </script>

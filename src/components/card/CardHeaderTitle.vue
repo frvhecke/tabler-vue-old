@@ -1,6 +1,9 @@
 <template>
   <h3 class="card-title">
-    {{text}}
+    {{title}}
+    <span v-if="subtitle" class="card-subtitle">
+      {{subtitle}}
+    </span>
   </h3>
 </template>
 
@@ -8,7 +11,8 @@
 export default {
   name: 'CardHeaderTitle',
   props: {
-    text: { default: '', type: String }
+    title: { default: '', type: String },
+    subtitle: { default: '', type: String }
   }
 }
 </script>
