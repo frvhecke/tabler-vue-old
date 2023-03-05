@@ -1,5 +1,5 @@
 <template>
-  <CardWrapper :progressbar="true" :progress="progress">
+  <CardWrapper :background_color="background_color" :text_color="text_color" :text_color_auto="text_color_auto" :progressbar="true" :progress="progress">
     <template #header v-if="header_active">
       <slot name="header"></slot>
     </template>
@@ -19,7 +19,10 @@ export default {
     CardWrapper
   },
   props: {
-    progress: { default: 0, type: Number }
+    progress: { default: 0, type: Number },
+    background_color: { default: '', type: String },
+    text_color: { default: '', type: String },
+    text_color_auto: { default: false, type: Boolean }
   },
   computed: {
     footer_active () {
