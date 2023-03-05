@@ -67,6 +67,8 @@ export default {
       }
       if(this.colors.includes(color)) {
           return light ? 'bg-' + color + '-lt' : 'bg-' + color
+      } else {
+        return ''
       }
     },
     text_color_class () {
