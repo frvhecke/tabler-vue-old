@@ -13,6 +13,9 @@ export default {
   components: {
     StandardIcon
   },
+  data: () => ({
+    colors: new Array('primary','secondary','success','warning','danger','info','light','dark','blue','azure','indigo','purple','pink','red','orange','yellow','lime','green','teal','cyan','facebook','twitter','google','youtube','vimeo','dribbble','github','instagram','pinterest','vk','rss','flickr','bitbucket','tabler','link')
+  }),
   props: {
     text: { default: '', type: String },
     tooltip: { default: '', type: String },
@@ -36,76 +39,8 @@ export default {
       }
     },
     getColor () {
-      if (this.color === 'primary') {
-        return 'btn-primary'
-      } else if (this.color === 'secondary') {
-        return 'btn-secondary'
-      } else if (this.color === 'success') {
-        return 'btn-success'
-      } else if (this.color === 'warning') {
-        return 'btn-warning'
-      } else if (this.color === 'danger') {
-        return 'btn-danger'
-      } else if (this.color === 'info') {
-        return 'btn-info'
-      } else if (this.color === 'light') {
-        return 'btn-light'
-      } else if (this.color === 'dark') {
-        return 'btn-dark'
-      } else if (this.color === 'blue') {
-        return 'btn-blue'
-      } else if (this.color === 'azure') {
-        return 'btn-azure'
-      } else if (this.color === 'indigo') {
-        return 'btn-indigo'
-      } else if (this.color === 'purple') {
-        return 'btn-purple'
-      } else if (this.color === 'pink') {
-        return 'btn-pink'
-      } else if (this.color === 'red') {
-        return 'btn-red'
-      } else if (this.color === 'orange') {
-        return 'btn-orange'
-      } else if (this.color === 'yellow') {
-        return 'btn-yellow'
-      } else if (this.color === 'lime') {
-        return 'btn-lime'
-      } else if (this.color === 'green') {
-        return 'btn-green'
-      } else if (this.color === 'teal') {
-        return 'btn-teal'
-      } else if (this.color === 'cyan') {
-        return 'btn-cyan'
-      } else if (this.color === 'facebook') {
-        return 'btn-facebook'
-      } else if (this.color === 'twitter') {
-        return 'btn-twitter'
-      } else if (this.color === 'google') {
-        return 'btn-google'
-      } else if (this.color === 'youtube') {
-        return 'btn-youtube'
-      } else if (this.color === 'vimeo') {
-        return 'btn-vimeo'
-      } else if (this.color === 'dribbble') {
-        return 'btn-dribbble'
-      } else if (this.color === 'github') {
-        return 'btn-github'
-      } else if (this.color === 'instagram') {
-        return 'btn-instagram'
-      } else if (this.color === 'pinterest') {
-        return 'btn-pinterest'
-      } else if (this.color === 'vk') {
-        return 'btn-vk'
-      } else if (this.color === 'rss') {
-        return 'btn-rss'
-      } else if (this.color === 'flickr') {
-        return 'btn-flickr'
-      } else if (this.color === 'bitbucket') {
-        return 'btn-bitbucket'
-      } else if (this.color === 'tabler') {
-        return 'btn-tabler'
-      }
-      return ''
+      // Return matching btn-color or default if no match
+      return this.colors.includes(this.color) ? 'btn-' + this.color : ''
     }
   }
 }
