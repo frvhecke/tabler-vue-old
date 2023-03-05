@@ -6,6 +6,7 @@
         {{subtitle}}
       </span>
     </h3>
+    <slot></slot>
   </div>
 </template>
 
