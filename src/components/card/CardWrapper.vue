@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-left" :class="[ { 'card-borderless' : !border }, { 'card-active' : active }, { 'card-inactive' : inactive }, { 'card-stacked' : stacked }, { 'card-rotate-right' : rotate_right }, { 'card-rotate-left' : rotate_left } ]">
+  <div class="card text-left" :class="[ { 'card-borderless' : !border }, { 'card-active' : active }, { 'card-inactive' : inactive }, { 'card-stacked' : stacked }, { 'card-rotate-right' : rotate_right }, { 'card-rotate-left' : rotate_left }, background_color_class, text_color_class ]">
     <div v-if="status_top" class="card-status-top" :class="[ status_color_class ]"></div>
     <div v-if="status_bottom" class="card-status-bottom" :class="[ status_color_class ]"></div>
     <div v-if="status_side" class="card-status-start" :class="[ status_color_class ]"></div>
@@ -27,8 +27,14 @@ export default {
     status_color: { default: '', type: String },
     rotate: { default: '', type: String },
     image: { default: '', type: String },
-    image_url: { default: '', type: String }
+    image_url: { default: '', type: String },
+    background_color: { default: '', type: String },
+    text_color: { default: '', type: String },
+    text_color_auto: { default: false, type: Boolean }
   },
+  data: () => ({
+    colors: new Array('primary','secondary','success','warning','danger','info','light','dark','blue','azure','indigo','purple','pink','red','orange','yellow','lime','green','teal','cyan','facebook','twitter','google','youtube','vimeo','dribbble','github','instagram','pinterest','vk','rss','flickr','bitbucket','tabler')
+  }),
   computed: {
     footer_active () {
       return this.$slots.footer
@@ -49,74 +55,30 @@ export default {
       return this.status === 'side'
     },
     status_color_class () {
-      if (this.status_color === 'secondary') {
-        return 'bg-secondary'
-      } else if (this.status_color === 'success') {
-        return 'bg-success'
-      } else if (this.status_color === 'warning') {
-        return 'bg-warning'
-      } else if (this.status_color === 'danger') {
-        return 'bg-danger'
-      } else if (this.status_color === 'info') {
-        return 'bg-info'
-      } else if (this.status_color === 'light') {
-        return 'bg-light'
-      } else if (this.status_color === 'dark') {
-        return 'bg-dark'
-      } else if (this.status_color === 'blue') {
-        return 'bg-blue'
-      } else if (this.status_color === 'azure') {
-        return 'bg-azure'
-      } else if (this.status_color === 'indigo') {
-        return 'bg-indigo'
-      } else if (this.status_color === 'purple') {
-        return 'bg-purple'
-      } else if (this.status_color === 'pink') {
-        return 'bg-pink'
-      } else if (this.status_color === 'red') {
-        return 'bg-red'
-      } else if (this.status_color === 'orange') {
-        return 'bg-orange'
-      } else if (this.status_color === 'yellow') {
-        return 'bg-yellow'
-      } else if (this.status_color === 'lime') {
-        return 'bg-lime'
-      } else if (this.status_color === 'green') {
-        return 'bg-green'
-      } else if (this.status_color === 'teal') {
-        return 'bg-teal'
-      } else if (this.status_color === 'cyan') {
-        return 'bg-cyan'
-      } else if (this.status_color === 'facebook') {
-        return 'bg-facebook'
-      } else if (this.status_color === 'twitter') {
-        return 'bg-twitter'
-      } else if (this.status_color === 'google') {
-        return 'bg-google'
-      } else if (this.status_color === 'youtube') {
-        return 'bg-youtube'
-      } else if (this.status_color === 'vimeo') {
-        return 'bg-vimeo'
-      } else if (this.status_color === 'dribbble') {
-        return 'bg-dribbble'
-      } else if (this.status_color === 'github') {
-        return 'bg-github'
-      } else if (this.status_color === 'instagram') {
-        return 'bg-instagram'
-      } else if (this.status_color === 'pinterest') {
-        return 'bg-pinterest'
-      } else if (this.status_color === 'vk') {
-        return 'bg-vk'
-      } else if (this.status_color === 'rss') {
-        return 'bg-rss'
-      } else if (this.status_color === 'flickr') {
-        return 'bg-flickr'
-      } else if (this.status_color === 'bitbucket') {
-        return 'bg-bitbucket'
-      } else if (this.status_color === 'tabler') {
-        return 'bg-tabler'
+      // Return matching bg-color or default if no match
+      return this.colors.includes(this.status_color) ? 'bg-' + this.status_color : 'bg-primary'
+    },
+    background_color_class () {
+      var light = false
+      var color = this.background_color
+      if(color.includes('-lt')) {
+        light = true
+        color = color.split('-')[0]
       }
-      return 'bg-primary'
+      if(this.colors.includes(color)) {
+          return light ? 'bg-' + color + '-lt' : 'bg-' + color
+      }
+    },
+    text_color_class () {
+      if(this.text_color_auto) {
+        if(this.background_color_class !== '') {
+          return this.background_color_class.replace('bg', 'text') + "-fg"
+        } else {
+          return ''
+        }
+      } else {
+        return this.colors.includes(this.text_color) ? 'text-' + this.status_color : ''
+      }
     },
     rotate_right () {
       return this.rotate === 'right'
