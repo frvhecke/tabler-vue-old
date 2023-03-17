@@ -79,7 +79,7 @@ export default {
           return ''
         }
       } else {
-        return this.colors.includes(this.text_color) ? 'text-' + this.status_color : ''
+        return this.colors.includes(this.text_color) ? 'text-' + this.text_color : ''
       }
     },
     rotate_right () {
