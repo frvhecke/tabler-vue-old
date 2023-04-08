@@ -1,6 +1,6 @@
 <template>
   <div class="mb-3">
-    <FormLabel :text="label" :required="required" />
+    <FormLabel :text="label" :required="required" :description="description" />
     <slot></slot>
   </div>
 </template>
